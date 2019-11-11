@@ -1,21 +1,5 @@
-# ipsec.github.io
+Forked from [**IppSec/ippsec.github.io**](https://github.com/IppSec/ippsec.github.io) and modified for a personal project, linked to my [**Wankil**](https://github.com/nbrisset/Wankil) repository.
 
-## Search Utility
+© [ippSec](https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA) (with his kind agreement, please check out [ippsec.rocks](https://ippsec.rocks) and [his Patreon](https://patreon.com/ippsec)) and contributors · 2019
 
-### Updating the dataset
-
-To update the dataset do the following (assuming you have git cli and python3)
-
-```sh
-git clone https://github.com/IppSec/ippsec.github.io.git ippsec
-# Or you can use the SSH link if you prefer
-cd ippsec
-python yt_crawl.py -g [put your api key here]]
-git push
-```
-
-### Compiling SCSS
-
-Development was done with the VS Code extension [Live Sass Compiler](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
-
-Install this extention and use it to update the stylesheets, note that the `.vscode/settings.json` file contains all the settings required for this extension
+Content: [Blinils](https://nilsbrisset.info), Design: [@HexF_me](https://twitter.com/hexf_me), Original PoC: [@Shell_ock](https://twitter.com/shell_ock), Theme Inspiration: [HowSecureIsMyPassword](https://howsecureismypassword.com)

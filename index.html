@@ -1,34 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Search utility for IppSec's YouTube videos">
-	<meta name="keywords" content="ippsec, hacking, pentesting, hackthebox, htb">
-	<meta name="author" content="IppSec">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Search utility for Wankil's YouTube videos">
+		<meta name="keywords" content="wankil, studio, laink, terracid, youtube">
+		<meta name="author" content="Nils BRISSET, a work derived from IppSec/ippsec.github.io">
 
-	<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style.css">
 
-	<title>IppSec - Search</title>
-</head>
-<body class="color-no-search">		
+		<title>Wankil Studio · Annuaire v0.1-alpha</title>
+	</head>
+<body>		
 	<div class="container">
 		
 		<div class="search">
 			<div class="header">
-				<h1>IPPSEC</h1>
-				<div class="social">
-					<a href="https://twitter.com/ippsec">Twitter</a>
+				<h1>Wankil Studio &bullet; Annuaire v0.1-alpha</h1>
+				<!--<div class="social">
+					<a href="https://www.youtube.com/user/MiniprodFR/videos">Chaîne principale</a>
 					&bullet;
-					<a href="https://www.patreon.com/ippsec">Patreon</a>
+					<a href="https://www.youtube.com/user/terracid/videos">Chaîne secondaire</a>
 					&bullet;
-					<a href="https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA">Youtube</a>
-				</div>
+					<a href="https://twitter.com/WankilStudio">Twitter</a>
+					&bullet;
+					<a href="https://www.facebook.com/wankilstudio">Facebook</a>
+					&bullet;
+					<a href="https://www.twitch.tv/wankilstudio">Twitch</a>
+					&bullet;
+					<a href="https://shop.wankil.fr/">Wankil Shop</a>
+				</div>!-->
 			</div>
 		
 			<div class="query">
 				<form class="searchForm" action="#">
-					<input type="text" class="search" placeholder="ENTER SEARCH TERM" autocomplete="false">
+					<input type="input" class="search" placeholder="ENTREZ UN MOT-CLÉ" autocomplete="false">
 				</form>
 
 			</div>
@@ -43,16 +48,15 @@
 					<table class="results">
 						<thead>
 							<tr>
-								<td width="33%">
-									Video	
+								<td>
+									Épisode
 								</td>
 								<td>
 									Description
 								</td>
-								<!--
 								<td>
-									Link
-								</td>-->
+									Lien
+								</td>
 							</tr>
 						</thead>
 						<tbody class="results">
@@ -63,25 +67,24 @@
 			</div>
 
 			<div class="subfooter">
-				<h3>Please consider supporting me on <a href="https://patreon.com/ippsec">Patreon</a></h3>
+				<p>Quelles sont les <a href="https://github.com/nbrisset/Wankil/blob/master/videos-linked-to-vod.md">VOD utilisées</a> pour un épisode donné ?</p>
+				<p>TODO: Quelles sont les <a href="https://github.com/nbrisset/Wankil/blob/master/music-in-wankil-videos.md">musiques utilisées</a> pour un épisode donné ?</p>
 			</div>
 		</div>
 		
 		<div class="footer">
-			&copy; ippSec and contributors 2019
+			&copy; <a href="https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA">ippSec</a> (with his kind agreement, please check out <a href="https://ippsec.rocks">ippsec.rocks</a> and <a href="https://patreon.com/ippsec">his Patreon</a>) and contributors · 2019
 			<br>
-			Design by: <a href="https://twitter.com/hexf_me">@HexF_me</a>,
-			Original PoC: <a href="https://twitter.com/shell_ock">@Shell_ock</a>, <br />
-			Theme Inspiration: <a href="https://howsecureismypassword.net">DashLane - HowSecureIsMyPassword</a>
+			Content: <a href="https://nilsbrisset.info">Blinils</a>,
+			Design: <a href="https://twitter.com/hexf_me">@HexF_me</a>,
+			Original PoC: <a href="https://twitter.com/shell_ock">@Shell_ock</a>,
+			Theme Inspiration: <a href="https://howsecureismypassword.com">HowSecureIsMyPassword</a>
 			<br>
-			Found a bug? File it or fix it <a href="https://github.com/IppSec/ippsec.github.io/issues">here</a>
+			Found a bug? File it or fix it <a href="https://github.com/nbrisset/ippsec.github.io">here on Github</a> (forked from <a href="https://github.com/IppSec/ippsec.github.io/issues">IppSec/ippsec.github.io</a>)
 		</div>
 	</div>
 
-	
-
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="jquery-3.4.1.min.js"></script>
 		<script src="logic.js"></script>
 </body>
 

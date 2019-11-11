@@ -1,8 +1,7 @@
-//var searchResultFormat = '<tr><td>$machine</td><td>$line</td><td><a href="$link" target="_blank">YouTube</a></td></tr>';
-var searchResultFormat = '<tr><td><a href="$link" target="_blank">$machine</a></td><td align="left">$line</td></tr>';
-var linkTemplate = 'https://youtube.com/watch?v=$video&t=$time';
-var totalLimit = 250;
-var replaceStrings = ['HackTheBox - ', 'VulnHub - '];
+var searchResultFormat = '<tr><td><a href="$link1">$episode</a></td><td>$description</td><td><a href="$link2">$site</a></td></tr>';
+var linkVideo = 'https://youtube.com/watch?v=$idVideo';
+var linkTemplate = 'https://youtube.com/watch?v=$extVideo&t=$time';
+var subtitleTemplate = 'https://nilsbrisset.info/subtitles/$extVideo.srt';
 
 var controls = {
 	oldColor: '',
@@ -26,24 +25,20 @@ var controls = {
 		};
 
 		dataset.forEach((e) => {
-			for (i=0; i < replaceStrings.length; i++) {
-				e.machine = (e.machine).replace(replaceStrings[i], '');
-			}
-			
-			if (e.line.toLowerCase().match(regex) || e.machine.toLowerCase().match(regex)) results.push(e);
+			if (e.description.toLowerCase().match(regex) || e.episode.toLowerCase().match(regex)) results.push(e);
 		});
 		return results;
 	},
 	updateResults: function($loc, results){
 		if (results.length == 0) {
 			$noResults.show();
-			$noResults.text('No Results Found');
+			$noResults.text('Aucun résultat trouvé');
 			$resultsTableHideable.addClass('hide');
 		}
-		else if (results.length > totalLimit) {
+		else if (results.length > 500) {
 			$noResults.show();
 			$resultsTableHideable.addClass('hide');
-			$noResults.text('Error: ' + results.length + ' results were found, try being more specific');
+			$noResults.text('Erreur : ' + results.length + ' résultats ont été trouvés, précisez votre demande');
 			this.setColor($colorUpdate, 'too-many-results');
 		}
 		else {
@@ -53,12 +48,16 @@ var controls = {
 
 			results.forEach((r) => {
 				//Not the fastest but it makes for easier to read code :>
-
+				if(r.site === "sub") { tolink = subtitleTemplate; }
+				else if(r.site === "YouTube") { tolink = linkTemplate; }
+				else { tolink = linkTemplate; }
+				
 				timeInSeconds = r.timestamp.minutes * 60 + r.timestamp.seconds;
 				el = searchResultFormat
-					.replace('$machine', r.machine)
-					.replace('$line', r.line)
-					.replace('$link', linkTemplate.replace('$video', r.videoId).replace('$time', timeInSeconds));
+					.replace('$episode', r.episode).replace('$site', r.site)
+					.replace('$link1', linkVideo.replace('$idVideo', r.videoId))
+					.replace('$description', r.description)
+					.replace('$link2', tolink.replace('$extVideo', r.externalId).replace('$time', timeInSeconds));
 
 				$loc.append(el);
 			});
@@ -73,6 +72,10 @@ var controls = {
 			if (cls.match(colorTestRegex)) $loc.removeClass(cls);
 		});
 		$loc.addClass('color-' + indicator);
+		if (this.oldColor != '') {
+			var fc = 'color-fade-from-' + this.oldColor + '-to-' + indicator;
+			$loc.addClass(fc);
+		}
 		this.oldColor = indicator;
 	}
 };
@@ -88,9 +91,8 @@ $(document).ready(() => {
 	$noResults = $('div.noResults');
 	$colorUpdate = $('body');
 
-	// Preventing initial fade
-	document.body.classList.add("fade");
-
+	controls.setColor($colorUpdate, 'no-search');
+	controls.hideResults();
 	var currentSet = [];
 	var oldSearchValue = '';
 
@@ -103,7 +105,7 @@ $(document).ready(() => {
 			oldSearchValue = val;
 
 			currentSet = window.controls.doSearch(val, currentSet);
-			if (currentSet.length < totalLimit)
+			if (currentSet.length < 500)
 				window.controls.setColor($colorUpdate, currentSet.length == 0 ? 'no-results' : 'results-found');
 
 			window.controls.updateResults($resultsTable, currentSet);
