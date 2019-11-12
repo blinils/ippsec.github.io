@@ -17,14 +17,12 @@ var controls = {
 
 		words = match.toLowerCase();
 		words = words.split(" ");
-		console.log("words = " + words)
 		regex = "";
 		// Lazy way to create regex (?=.*word1)(?=.*word2) this matches all words.
 		for (i = 0; i < words.length; i++) {
 			regex += '(?=.*' + words[i] + ')';
 		};
 
-		console.log("regex = " + regex)
 		dataset.forEach((e) => {
 			allthedata = e.description + e.episode + e.videoId + e.externalId
 			if (allthedata.toLowerCase().match(regex)) results.push(e);
