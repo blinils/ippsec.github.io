@@ -4,7 +4,6 @@ var linkTemplate = 'https://youtube.com/watch?v=$extVideo&t=$time';
 var subtitleTemplate = 'https://nilsbrisset.info/subtitles/$extVideo.srt';
 
 var controls = {
-	oldColor: '',
 	displayResults: function(){
 		$results.show();
 		$resultsTableHideable.removeClass('hide');
@@ -18,14 +17,17 @@ var controls = {
 
 		words = match.toLowerCase();
 		words = words.split(" ");
+		console.log("words = " + words)
 		regex = "";
 		// Lazy way to create regex (?=.*word1)(?=.*word2) this matches all words.
 		for (i = 0; i < words.length; i++) {
 			regex += '(?=.*' + words[i] + ')';
 		};
 
+		console.log("regex = " + regex)
 		dataset.forEach((e) => {
-			if (e.description.toLowerCase().match(regex) || e.episode.toLowerCase().match(regex)) results.push(e);
+			allthedata = e.description + e.episode + e.videoId + e.externalId
+			if (allthedata.toLowerCase().match(regex)) results.push(e);
 		});
 		return results;
 	},
@@ -39,7 +41,6 @@ var controls = {
 			$noResults.show();
 			$resultsTableHideable.addClass('hide');
 			$noResults.text('Erreur : ' + results.length + ' résultats ont été trouvés, précisez votre demande');
-			this.setColor($colorUpdate, 'too-many-results');
 		}
 		else {
 			$loc.empty();
@@ -63,21 +64,7 @@ var controls = {
 			});
 		}
 	},
-	setColor: function($loc, indicator){
-		if (this.oldColor == indicator) return;
-		var colorTestRegex = /^color-/i;
-
-		$loc[0].classList.forEach((cls) => {
-			//we cant use class so we use cls instead :>
-			if (cls.match(colorTestRegex)) $loc.removeClass(cls);
-		});
-		$loc.addClass('color-' + indicator);
-		if (this.oldColor != '') {
-			var fc = 'color-fade-from-' + this.oldColor + '-to-' + indicator;
-			$loc.addClass(fc);
-		}
-		this.oldColor = indicator;
-	}
+	
 };
 window.controls = controls;
 
@@ -91,7 +78,6 @@ $(document).ready(() => {
 	$noResults = $('div.noResults');
 	$colorUpdate = $('body');
 
-	controls.setColor($colorUpdate, 'no-search');
 	controls.hideResults();
 	var currentSet = [];
 	var oldSearchValue = '';
@@ -105,14 +91,11 @@ $(document).ready(() => {
 			oldSearchValue = val;
 
 			currentSet = window.controls.doSearch(val, currentSet);
-			if (currentSet.length < 500)
-				window.controls.setColor($colorUpdate, currentSet.length == 0 ? 'no-results' : 'results-found');
 
 			window.controls.updateResults($resultsTable, currentSet);
 		}
 		else {
 			controls.hideResults();
-			window.controls.setColor($colorUpdate, 'no-search');
 		}
 
 		if (event.type == 'submit') event.preventDefault();
