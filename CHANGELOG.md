@@ -1,5 +1,9 @@
 # Version history #
 
+  * **v0.3-alpha (2019-11-22):**
+    * The YouTube timestamp links have been split into minutes and seconds, for more visibility
+    * As Christmas approaches, what about diving into the code and looking for... an Easter egg?
+
   * **v0.2-alpha (2019-11-12):**
     * The color system (according to the search terms) has been removed upon a suggestion of [Merluc](https://twitter.com/Merluc21)
     * The multi-word searching is extended to all the columns, you can try the keywords: _terracid golf TriEAkuzUhk_

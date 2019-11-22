@@ -1,7 +1,8 @@
 var searchResultFormat = '<tr><td><a href="$link1">$episode</a></td><td>$description</td><td><a href="$link2">$site</a></td></tr>';
 var linkVideo = 'https://youtube.com/watch?v=$idVideo';
-var linkTemplate = 'https://youtube.com/watch?v=$extVideo&t=$time';
+var linkTemplate = 'https://youtube.com/watch?v=$extVideo&t=$minsm$secss';
 var subtitleTemplate = 'https://nilsbrisset.info/subtitles/$extVideo.srt';
+var audio = document.querySelector('audio'); audio.volume = 0.5;
 
 var controls = {
 	displayResults: function(){
@@ -22,6 +23,10 @@ var controls = {
 		for (i = 0; i < words.length; i++) {
 			regex += '(?=.*' + words[i] + ')';
 		};
+		
+		if (words.includes(atob("cGF0cmljaw==")))
+		{ audio.play(); $("div#fucking-rainbows").attr("id", "fucking-rainbow"); }
+		else { audio.pause(); $("div#fucking-rainbow").attr("id", "fucking-rainbows") };		
 
 		dataset.forEach((e) => {
 			allthedata = e.description + e.episode + e.videoId + e.externalId
@@ -51,12 +56,13 @@ var controls = {
 				else if(r.site === "YouTube") { tolink = linkTemplate; }
 				else { tolink = linkTemplate; }
 				
-				timeInSeconds = r.timestamp.minutes * 60 + r.timestamp.seconds;
+				timeMins = r.timestamp.minutes
+				timeSecs = r.timestamp.seconds;
 				el = searchResultFormat
 					.replace('$episode', r.episode).replace('$site', r.site)
 					.replace('$link1', linkVideo.replace('$idVideo', r.videoId))
 					.replace('$description', r.description)
-					.replace('$link2', tolink.replace('$extVideo', r.externalId).replace('$time', timeInSeconds));
+					.replace('$link2', tolink.replace('$extVideo', r.externalId).replace('$mins', timeMins).replace('$secs', timeSecs));
 
 				$loc.append(el);
 			});
@@ -74,7 +80,6 @@ $(document).ready(() => {
 	$resultsTableHideable = $('.results-table');
 	$resultsTable = $('tbody.results').first();
 	$noResults = $('div.noResults');
-	$colorUpdate = $('body');
 
 	controls.hideResults();
 	var currentSet = [];
@@ -92,6 +97,7 @@ $(document).ready(() => {
 
 			window.controls.updateResults($resultsTable, currentSet);
 		}
+		
 		else {
 			controls.hideResults();
 		}
