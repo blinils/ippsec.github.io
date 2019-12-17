@@ -1,5 +1,9 @@
 # Version history #
 
+  * **v0.4-alpha (2019-12-17):**
+    * A small bug has been fixed in the multi-word searching
+    * More and more data is being added from [videos-linked-to-vod.md](https://github.com/nbrisset/Wankil/blob/master/videos-linked-to-vod.md) and NOW from [music-in-wankil-videos.md](https://github.com/nbrisset/Wankil/blob/master/music-in-wankil-videos.md)
+
   * **v0.3-alpha (2019-11-22):**
     * The YouTube timestamp links have been split into minutes and seconds, for more visibility
     * As Christmas approaches, what about diving into the code and looking for... an Easter egg?

@@ -29,7 +29,8 @@ var controls = {
 		else { audio.pause(); $("div#fucking-rainbow").attr("id", "fucking-rainbows") };		
 
 		dataset.forEach((e) => {
-			allthedata = e.description + e.episode + e.videoId + e.externalId
+			allthedata = e.description + " " + e.episode + " "
+			allthedata += e.videoId + " " + e.externalId + " "
 			if (allthedata.toLowerCase().match(regex)) results.push(e);
 		});
 		return results;
