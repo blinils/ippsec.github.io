@@ -1,4 +1,4 @@
-Forked from [**IppSec/ippsec.github.io**](https://github.com/IppSec/ippsec.github.io) and modified for a personal project, linked to my [**Wankil**](https://github.com/nbrisset/Wankil) repository.
+Forked from [**IppSec/ippsec.github.io**](https://github.com/IppSec/ippsec.github.io) and modified for a personal project, linked to my [**Wankil**](../../../Wankil) repository.
 
 © [ippSec](https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA) (with his kind agreement, please check out [ippsec.rocks](https://ippsec.rocks) and [his Patreon](https://patreon.com/ippsec)) and contributors · 2019
 

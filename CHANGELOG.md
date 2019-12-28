@@ -2,7 +2,7 @@
 
   * **v0.4-alpha (2019-12-17):**
     * A small bug has been fixed in the multi-word searching
-    * More and more data is being added from [videos-linked-to-vod.md](https://github.com/nbrisset/Wankil/blob/master/videos-linked-to-vod.md) and NOW from [music-in-wankil-videos.md](https://github.com/nbrisset/Wankil/blob/master/music-in-wankil-videos.md)
+    * More and more data is being added from [videos-linked-to-vod.md](../../../Wankil/blob/master/videos-linked-to-vod.md) and NOW from [music-in-wankil-videos.md](../../../Wankil/blob/master/music-in-wankil-videos.md)
 
   * **v0.3-alpha (2019-11-22):**
     * The YouTube timestamp links have been split into minutes and seconds, for more visibility
@@ -14,5 +14,5 @@
 
   * **v0.1-alpha (2019-11-11):**
     * Initial fork from [IppSec/ippsec.github.io](https://github.com/IppSec/ippsec.github.io)
-    * All the JSON data has been replaced by the videos and VODs from [videos-linked-to-vod.md](https://github.com/nbrisset/Wankil/blob/master/videos-linked-to-vod.md)
+    * All the JSON data has been replaced by the videos and VODs from [videos-linked-to-vod.md](../../../Wankil/blob/master/videos-linked-to-vod.md)
 
