@@ -1,5 +1,8 @@
 # Version history #
 
+  * **v0.5-alpha (2020-03-06):**
+    * This project will no longer have jQuery as a dependency, thanks to the [pull request #15](https://github.com/IppSec/ippsec.github.io/pull/15) made by [frnksty](https://github.com/frnkst)
+
   * **v0.4-alpha (2019-12-17):**
     * A small bug has been fixed in the multi-word searching
     * More and more data is being added from [videos-linked-to-vod.md](../../../Wankil/blob/master/videos-linked-to-vod.md) and NOW from [music-in-wankil-videos.md](../../../Wankil/blob/master/music-in-wankil-videos.md)
