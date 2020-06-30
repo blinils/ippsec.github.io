@@ -1,5 +1,12 @@
 # Version history #
 
+  * **v0.6-alpha (2020-06-30):**
+    * All the 700+ videos and 1700+ VODs have been added to this utility!
+    * The games' names are now specified for each compilation video  
+    * Even better: the video editors are mentioned for each episode!
+    * French and English subtitles are coming soon for a bunch of videos
+    * Beat drops are cool! The utility now facilitates the search for outro music!
+
   * **v0.5-alpha (2020-03-06):**
     * This project will no longer have jQuery as a dependency, thanks to the [pull request #15](https://github.com/IppSec/ippsec.github.io/pull/15) made by [frnksty](https://github.com/frnkst)
 

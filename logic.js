@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function()
 		if (val != '')
 		{
 			controls.displayResults();
-			if (val.length < oldSearchValue.length) currentSet = window.dataset;
+			currentSet = window.dataset;
 			oldSearchValue = val;
 			currentSet = window.controls.doSearch(val, currentSet);
 			window.controls.updateResults(resultsTable, currentSet);
