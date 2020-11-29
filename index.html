@@ -3,56 +3,40 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Search utility for Wankil's YouTube videos">
-		<meta name="keywords" content="wankil, studio, laink, terracid, youtube">
+		<meta name="description" content="Moteur de recherche musique-épisodes-VOD de Wankil Studio, créé par Blinils">
+		<meta name="keywords" content="wankil, studio, laink, terracid, recherche, youtube, musique, vod">
 		<meta name="author" content="Nils BRISSET, a work derived from IppSec/ippsec.github.io">
 		<link rel="stylesheet" href="style.css">
 
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Wankil Studio • Annuaire v0.6-alpha" />
-		<meta name="twitter:description" content="C'est quoi la musique à X:XX ? Quelles sont les VOD de l'épisode YYY ? À vous de jouer, avis et feedback grandement appréciés." />
+		<meta name="twitter:title" content="Wankil Studio • Annuaire v0.7-alpha" />
+		<meta name="twitter:description" content="C'est quoi la musique à X:XX ? Quelle est la VOD de l'épisode YYY ? Votre avis sera grandement apprécié, version Web ou mobile ! Blinils" />
 		<meta name="twitter:url" content="https://nilsbrisset.info/projects/wankilvod/" />
 		<meta name="twitter:image" content="https://nilsbrisset.info/projects/wankilvod/files/annuaire-apercu.png" />
 		<meta property="og:image:width" content="800" />
 		<meta property="og:image:height" content="400" />
 
-		<title>Wankil Studio · Annuaire v0.6-alpha</title>
+		<title>Wankil Studio · Annuaire VOD v0.7-alpha</title>
 	</head>
 <body>		
 	<div class="container">
 		<div class="search">
 			<div class="header">
 				<h1>
-					Wankil Studio &bullet; Annuaire v0.6-alpha
-					<sup><small><a href="https://github.com/blinils/ippsec.github.io/blob/master/CHANGELOG.md">NEW!</a></small></sup>
+					Wankil Studio &bullet; Annuaire VOD <a href="https://github.com/blinils/ippsec.github.io/blob/master/CHANGELOG.md">v0.7</a> alpha
 				</h1>
-				<!--<div class="social">
-					<a href="https://www.youtube.com/user/MiniprodFR/videos">Chaîne principale</a>
-					&bullet;
-					<a href="https://www.youtube.com/user/terracid/videos">Chaîne secondaire</a>
-					&bullet;
-					<a href="https://twitter.com/WankilStudio">Twitter</a>
-					&bullet;
-					<a href="https://www.facebook.com/wankilstudio">Facebook</a>
-					&bullet;
-					<a href="https://www.twitch.tv/wankilstudio">Twitch</a>
-					&bullet;
-					<a href="https://shop.wankil.fr/">Wankil Shop</a>
-				</div>!-->
 			</div>
 		
 			<div class="query">
-				<form class="searchForm" action="#">
-					<input type="input" class="search" placeholder="ENTREZ UN MOT-CLÉ" autocomplete="false">
+				<form class="searchForm" onsubmit="return false;" action="#">
+					<input type="search" autofocus class="search" placeholder="ENTREZ UN MOT-CLÉ" autocomplete="false">
 				</form>
 
 			</div>
 
-			<div class="results">
+			<div class="results" style="display: none;">
 				<br>
-				<div class="noResults">
-					<h2>No Results Found</h2>
-				</div>
+				<div class="noResults"></div>
 				<div class="results-table">
 					
 					<table class="results">
@@ -77,8 +61,10 @@
 			</div>
 
 			<div class="subfooter">
-				<p>Quelles sont les <a href="https://github.com/blinils/Wankil/blob/master/videos-linked-to-vod.md">VOD utilisées</a> pour un épisode donné ?</p>
-				<p>Quelles sont les <a href="https://github.com/blinils/Wankil/blob/master/music-in-wankil-videos.md">musiques utilisées</a> pour un épisode donné ?</p>
+				<p>Quelles sont les VOD utilisées pour un épisode donné ?</p>
+				<p>Quelles sont les musiques utilisées pour un épisode donné ?</p>
+				 <button id="pat" onclick="sv = document.querySelector('input.search'); sv.value=atob('cGF0cmljaw==');
+				 var evt= new Event('change'); sv.dispatchEvent(evt); document.getElementById('pat').style.visibility='hidden';">LA FÊTE</button> 
 			</div>
 		</div>
 		
@@ -90,7 +76,7 @@
 			Original PoC: <a href="https://twitter.com/shell_ock">@Shell_ock</a>,
 			Theme Inspiration: <a href="https://howsecureismypassword.net">HowSecureIsMyPassword</a>
 			<br>
-			Annuaire v0.6-alpha (<a href="https://github.com/blinils/ippsec.github.io/blob/master/CHANGELOG.md">changelog</a>) forked from <a href="https://github.com/IppSec/ippsec.github.io/issues">ippsec.github.io</a>. Found a bug? Send me a DM on Discord.
+			Annuaire v0.7-alpha (<a href="https://github.com/blinils/ippsec.github.io/blob/master/CHANGELOG.md">changelog</a>) forked from <a href="https://github.com/IppSec/ippsec.github.io/issues">ippsec.github.io</a>. Found a bug? Send me a DM on Discord! :)
 		</div>
 	</div>
 

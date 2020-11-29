@@ -38,18 +38,6 @@ var controls = {
 			regex += '(?=.*' + words[i] + ')';
 		};
 
-		rainbow = document.querySelector('[id^="fucking"]');
-		if (words.includes(atob("cGF0cmljaw==")))
-		{
-			audio.play();
-			rainbow.id = 'fucking-rainbow';
-		}
-		else
-		{
-			audio.pause();
-			rainbow.id = 'fucking-rainbows';
-		};
-
 		dataset.forEach((e) =>
 		{
 			allthedata = e.description + " " + e.episode + " "
@@ -135,6 +123,19 @@ document.addEventListener('DOMContentLoaded', function()
 	function doSearch(event)
 	{
 		var val = searchValue.value;
+		
+		rainbow = document.querySelector('[id^="fucking"]');
+		if (val.includes(atob("cGF0cmljaw==")))
+		{
+			audio.play();
+			rainbow.id = 'fucking-rainbow';
+		}
+		else
+		{
+			audio.pause();
+			rainbow.id = 'fucking-rainbows';
+		};
+		
 		if (val != '')
 		{
 			controls.displayResults();
@@ -164,6 +165,6 @@ document.addEventListener('DOMContentLoaded', function()
 			doSearch({ type: 'none'	});
 		});
 
-	form.submit(doSearch);
 	searchValue.addEventListener('input', doSearch);
+	searchValue.addEventListener('change', doSearch);
 });
